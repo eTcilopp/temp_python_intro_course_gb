@@ -7,12 +7,17 @@
 100 -> 1 (1 + 0 + 0) |
 '''
 
+
+
+def get_sum_of_containing_numbers(num: int) -> int:
+    sum = 0
+    while num > 0:
+        sum += num % 10
+        num = int(num/10)
+    return sum
+
 num = int(input('Введите трехзначное число: '))
-sum = 0
-while num > 0:
-    sum += num % 10
-    num = int(num/10)
-print(sum)
+print(get_sum_of_containing_numbers(num))
 
 
 '''
@@ -41,10 +46,44 @@ print(f'Сережа :{s/6}') # Сережа :1.0
 
 385916 -> yes
 123456 -> no
-Задача 8: Требуется определить, можно ли от шоколадки размером n × m долек отломить k долек, если разрешается сделать один разлом по прямой между дольками (то есть разломить шоколадку на два прямоугольника).
+'''
+
+num = int(input('Введите шестизначное число: '))
+left = int(num/1000)
+right = num - left * 1000
+res = 'no'
+if get_sum_of_containing_numbers(left) == get_sum_of_containing_numbers(right):
+    res = 'yes'
+print(res)
+
+'''
+Задача 8: Требуется определить, можно ли от шоколадки размером n x m долек отломить k долек, 
+если разрешается сделать один разлом по прямой между дольками (то есть разломить шоколадку на два прямоугольника).
 
 *Пример:*
 
 3 2 4 -> yes
 3 2 1 -> no
 '''
+
+
+
+def get_chocolate_slice(n: int, m: int, k: int) -> str: 
+    for i in range(n, 0, -1):
+        if i * m == k:
+            return 'yes'
+    for i in range(m, 0, -1):
+        if i * n == k:
+            return 'yes'
+    return 'no'
+
+n = 3
+m = 2
+k = 4
+print(get_chocolate_slice(n, m, k)) #  'yes'
+n = 3
+m = 2
+k = 1
+print(get_chocolate_slice(n, m, k))  # 'no'
+
+

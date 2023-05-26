@@ -84,7 +84,7 @@ WEIGHT_DICT = {
 }
 
 def get_weight(word):
-    return sum([[v for k, v in WEIGHT_DICT.items() if letter in k.lower()][0] for letter in word])
+    return sum([[v for k, v in WEIGHT_DICT.items() if letter.lower() in k.lower()][0] for letter in word])
 
 word = 'ноутбук'
 print(get_weight(word))

@@ -31,3 +31,17 @@ print(sorted(res))
 Собирающий модуль за один заход, находясь непосредственно перед некоторым кустом, собирает ягоды с этого куста и с двух соседних с ним.
 Напишите программу для нахождения максимального числа ягод, которое может собрать за один заход собирающий модуль, 
 находясь перед некоторым кустом заданной во входном файле грядки.'''
+
+n = 12 # Количество кустов на грядке
+berries_array = get_random_array(n)
+run_size = 3 # обрабатывается ккстов за 1 ход
+
+print(*berries_array)
+
+max_harvest = 0
+for i in range(0, n):
+    run_harvest = sum(berries_array[i:i+run_size]) if i + run_size <= n else sum(berries_array[i:n] + berries_array[0:i+run_size-n])
+    if run_harvest > max_harvest:
+        max_harvest = run_harvest
+
+print(max_harvest)

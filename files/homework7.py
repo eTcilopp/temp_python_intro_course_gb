@@ -46,7 +46,7 @@ def print_operation_table(operation, num_rows=6, num_columns=6):
 
 print_operation_table(lambda x, y: x * y)
 
-def my_sum(a, b):
+def my_func(a, b):
     return a**b
 
-print_operation_table(my_sum)
+print_operation_table(my_func)

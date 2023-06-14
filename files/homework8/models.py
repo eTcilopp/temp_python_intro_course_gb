@@ -8,10 +8,11 @@ class Data:
     
     @property
     def next_id(self):
-        max_id=max({value.get("id") for value in self.data})
-        if not max_id:
+        try:
+            return max({value.get("id") for value in self.data}) +1
+        except ValueError:
             return 1
-        return max_id + 1
+
     
     def rewrite_data_to_file(self):
         with open(self.path_to_data_file, encoding = 'utf-8', mode = 'w') as datafile: 
@@ -19,6 +20,8 @@ class Data:
     
     def get_data_from_file(self):
         with open(self.path_to_data_file, encoding = 'utf-8', mode = 'r') as datafile:
+            if datafile.read() == '':
+                return list(dict())
             return json.loads(datafile.read())
     
     def find_record(self, conditions):
@@ -49,18 +52,3 @@ class Data:
         self.rewrite_data_to_file()
         return True
         
-            
-        
-
-
-data = Data('data.json')
-a = data.add_record({"first_name": "Alexander", "last_name": "Grushkin"})
-b = data.add_record({"first_name": "Александр", "last_name": "Чушкин"})
-c = data.add_record({"first_name": "Александр", "last_name": "Пушкин"})
-d = data.find_record({"last_name":"Grushkin"})
-data.update_record(d[0], {"first_name": "Эльмар"})
-e = data.find_record({"first_name":"Эльмар"})
-print(e)
-data.delete_record(e[0])
-print(e)
-pass

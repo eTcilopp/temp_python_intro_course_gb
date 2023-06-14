@@ -44,8 +44,9 @@ class Data:
         self.rewrite_data_to_file()
         return record.get("id") 
     
-    def record_exists(self, record):
-        # Check whether record exists
+    def delete_record(self, record):
+        self.data.remove(record)
+        self.rewrite_data_to_file()
         return True
         
             
@@ -59,5 +60,7 @@ c = data.add_record({"first_name": "Александр", "last_name": "Пушк�
 d = data.find_record({"last_name":"Grushkin"})
 data.update_record(d[0], {"first_name": "Эльмар"})
 e = data.find_record({"first_name":"Эльмар"})
+print(e)
+data.delete_record(e[0])
 print(e)
 pass

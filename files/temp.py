@@ -8,8 +8,8 @@ def convert_image_to_string(image_path):
         return image_string
 
 # Usage example
-image_path = "C:\\temp\\Quanta-Services.png"
-result_path = "C:\\temp\\Output.txt"
+image_path = "C:\\temp\\north_arrow_s.png"
+result_path = "C:\\temp\\north_arrow_s.txt"
 image_string = convert_image_to_string(image_path)
 with open(result_path, "w") as result_path:
     result_path.write(image_string)

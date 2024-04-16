@@ -35,7 +35,7 @@ assert analyze_triangle(1, 4, 6) == "Треугольник не существ�
 
 def is_prime(n):
     if n < 0 or n > 100000:
-        return "Число должно быть в диапазоне от 0 до 100000"
+        raise ValueError("Число должно быть в диапазоне от 0 до 100000")
     if n <= 1:
         return False
     if n == 2:
@@ -49,7 +49,6 @@ def is_prime(n):
     return True
 
 
-assert is_prime(-1) == "Число должно быть в диапазоне от 0 до 100000"
 assert is_prime(0) is False
 assert is_prime(1) is False
 assert is_prime(2) is True

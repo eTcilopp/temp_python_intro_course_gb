@@ -28,7 +28,7 @@ assert get_hex(12340) == hex(12340)
 import fractions
 
 
-def my_fraction_sum(a: str, b: str) -> str:
+def my_fraction_sum_and_mul(a: str, b: str) -> str:
     def find_common_divisor(a: int, b: int) -> int:
         while b:
             a, b = b, a % b
@@ -50,10 +50,10 @@ def my_fraction_sum(a: str, b: str) -> str:
     return frac_sum, frac_mul
 
 
-assert my_fraction_sum("1/2", "1/3") == (str(fractions.Fraction(1, 2) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 2) * fractions.Fraction(1, 3)))
-assert my_fraction_sum("1/4", "1/3") == (str(fractions.Fraction(1, 4) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 4) * fractions.Fraction(1, 3)))
-assert my_fraction_sum("1/5", "1/3") == (str(fractions.Fraction(1, 5) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 5) * fractions.Fraction(1, 3)))
-assert my_fraction_sum("1/6", "1/3") == (str(fractions.Fraction(1, 6) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 6) * fractions.Fraction(1, 3)))
-assert my_fraction_sum("1/7", "1/3") == (str(fractions.Fraction(1, 7) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 7) * fractions.Fraction(1, 3)))
-assert my_fraction_sum("1/8", "1/3") == (str(fractions.Fraction(1, 8) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 8) * fractions.Fraction(1, 3)))
-assert my_fraction_sum("1/9", "1/3") == (str(fractions.Fraction(1, 9) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 9) * fractions.Fraction(1, 3)))
+assert my_fraction_sum_and_mul("1/2", "1/3") == (str(fractions.Fraction(1, 2) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 2) * fractions.Fraction(1, 3)))
+assert my_fraction_sum_and_mul("1/4", "1/3") == (str(fractions.Fraction(1, 4) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 4) * fractions.Fraction(1, 3)))
+assert my_fraction_sum_and_mul("1/5", "1/3") == (str(fractions.Fraction(1, 5) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 5) * fractions.Fraction(1, 3)))
+assert my_fraction_sum_and_mul("1/6", "1/3") == (str(fractions.Fraction(1, 6) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 6) * fractions.Fraction(1, 3)))
+assert my_fraction_sum_and_mul("1/7", "1/3") == (str(fractions.Fraction(1, 7) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 7) * fractions.Fraction(1, 3)))
+assert my_fraction_sum_and_mul("1/8", "1/3") == (str(fractions.Fraction(1, 8) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 8) * fractions.Fraction(1, 3)))
+assert my_fraction_sum_and_mul("1/9", "1/3") == (str(fractions.Fraction(1, 9) + fractions.Fraction(1, 3)), str(fractions.Fraction(1, 9) * fractions.Fraction(1, 3)))

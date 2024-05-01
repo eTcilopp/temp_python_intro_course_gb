@@ -68,7 +68,7 @@ class ATM:
             return self.max_withdraw_comission
         return comission
 
-    def check_if_deposit_is_multiple_of_multiplicity(self, amount):
+    def check_if_deposit_is_multiple_of_multiplicity(self, amount: Decimal):
         return amount % self.multiplicity == 0
 
     @property
@@ -89,7 +89,7 @@ class ATM:
     def rounded_balance(self):
         return round(self.balance, 2)
 
-    def deposit(self, amount):
+    def deposit(self, amount: Decimal):
         self.balance -= self.rich_tax_amount
         if not self.check_if_deposit_is_multiple_of_multiplicity(amount):
             return f'Rejected. Amount must be multiple of {self.multiplicity}. Balance: {self.rounded_balance}.'
@@ -98,7 +98,7 @@ class ATM:
         self.balance -= self.get_withdraw_comission(amount)
         return f'Deposited {amount}. Balance: {self.rounded_balance}.'
 
-    def withdraw(self, amount):
+    def withdraw(self, amount: Decimal):
         self.balance -= self.rich_tax_amount
         if self.balance - amount < 0:
             return f'Not enough money. Balance: {self.rounded_balance}.'

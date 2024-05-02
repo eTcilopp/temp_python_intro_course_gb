@@ -6,7 +6,7 @@
 
 def get_file_info(
     file_path_wirth_file_name_and_extension: str
-    ) -> tuple[str, str, str]:
+        ) -> tuple[str, str, str]:
     *file_path_elements, file_name_with_extension =\
         file_path_wirth_file_name_and_extension.split('\\')
     file_path = '\\'.join(file_path_elements)

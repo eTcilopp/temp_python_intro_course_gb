@@ -3,7 +3,6 @@
 Функция возвращает кортеж из трёх элементов: путь, имя файла, расширение файла.
 """
 
-
 def get_file_info(
     file_path_wirth_file_name_and_extension: str
         ) -> tuple[str, str, str]:

@@ -14,6 +14,7 @@ def rename_files(
         return {"result": False, "message": "Directory does not exist."}
 
     sequence_number = 1
+    error_count = 0
     for file in Path(directory).iterdir():
         if file.suffix == inbound_extension:
             new_name = (
@@ -25,8 +26,8 @@ def rename_files(
                 file.rename(Path(directory) / new_name)
                 sequence_number += 1
             except Exception:
-                pass
-    return {"result": True, "message": f"Renamed {sequence_number} files"}
+                error_count += 1
+    return {"result": True, "message": f"Renamed {sequence_number} files {'with' if error_count else 'without'} {error_count} errors."}
 
-
-rename_files(r'W:\DATA\STUDY\GB2\31. Погружение в Python\temp_python_intro_course_gb\dive_into_python\homework_7_test', 'eight_queens_', 2, '.txt', '.txt', [0, 2])
+res = rename_files(r'W:\DATA\STUDY\GB2\31. Погружение в Python\temp_python_intro_course_gb\dive_into_python\homework_7_test', 'eight_queens_', 2, '.txt', '.txt', [0, 2])
+print(res)

@@ -28,6 +28,3 @@ def rename_files(
             except Exception:
                 error_count += 1
     return {"result": True, "message": f"Renamed {sequence_number} files {'with' if error_count else 'without'} {error_count} errors."}
-
-res = rename_files(r'W:\DATA\STUDY\GB2\31. Погружение в Python\temp_python_intro_course_gb\dive_into_python\homework_7_test', 'eight_queens_', 2, '.txt', '.txt', [0, 2])
-print(res)
